@@ -1,29 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <aside>
+      <AsideTitle />
+      <AsideProfile />
+      <AsideTasks />
+      <AsideMenu />
+    </aside>
+    <div class="main-wrapper">123</div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import AsideTitle from '@/components/aside/AsideTitle.vue';
+import AsideProfile from '@/components/aside/AsideProfile.vue';
+import AsideMenu from '@/components/aside/AsideMenu.vue';
+import AsideTasks from '@/components/aside/AsideTasks.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    AsideTitle,
+    AsideProfile,
+    AsideMenu,
+    AsideTasks,
   },
 })
 export default class App extends Vue {}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped lang="less">
+div {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+}
+aside {
+  min-height: 100vh;
+  min-width: 350px;
+  max-width: 455px;
+  width: 21%;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  & > * {
+    padding-right: 1.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+div.main-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 </style>
+
